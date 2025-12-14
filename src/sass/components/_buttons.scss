@@ -1,3 +1,12 @@
+/* CTA size variables (change these to adjust sizes) */
+$cta-hero-font-size: 2.4rem !default;
+$cta-hero-padding-vertical: 0.8rem !default;
+$cta-hero-padding-horizontal: 1.6rem !default;
+
+$cta-contact-font-size: 2.4rem !default;
+$cta-contact-padding-vertical: 0.8rem !default;
+$cta-contact-padding-horizontal: 1.6rem !default;
+
 /* Call to Action Button */
 .cta-btn {
   display: inline-block;
@@ -24,6 +33,9 @@
 /* Hero Style */
 .cta-btn--hero {
   @include supportColorForIE11();
+  /* hero sizing */
+  font-size: $cta-hero-font-size;
+  padding: $cta-hero-padding-vertical $cta-hero-padding-horizontal;
   border-width: 2px;
   border-style: solid;
   -moz-border-image: -moz-linear-gradient(
@@ -104,4 +116,68 @@
 /* Arrow Button */
 .up i {
   color: #272727;
+}
+
+/* Contact form */
+.cta-btn--contact {
+  @include supportColorForIE11();
+  /* contact sizing */
+  font-size: $cta-contact-font-size;
+  padding: $cta-contact-padding-vertical $cta-contact-padding-horizontal;
+  border-width: 2px;
+  border-style: solid;
+  -moz-border-image: -moz-linear-gradient(
+    135deg,
+    $primary-color 0%,
+    $secondary-color 100%
+  );
+  -webkit-border-image: -webkit-linear-gradient(
+    135deg,
+    $primary-color 0%,
+    $secondary-color 100%
+  );
+  border-image: linear-gradient(
+    135deg,
+    $primary-color 0%,
+    $secondary-color 100%
+  );
+  -webkit-border-image-slice: 1;
+  border-image-slice: 1;
+  @include supportIE11() {
+    color: $secondary-color !important;
+    &:hover {
+      color: $white-color !important;
+    }
+  }
+
+  @include respond(phone) {
+    background-image: none;
+    border: 2px solid $secondary-color;
+    -webkit-text-fill-color: $secondary-color;
+  }
+
+  &::after {
+    background-image: linear-gradient(
+      135deg,
+      $primary-color 0%,
+      $secondary-color 100%
+    );
+
+    @include respond(phone) {
+      background-image: none;
+    }
+  }
+
+  &:hover {
+    -webkit-text-fill-color: $white-color;
+    text-decoration: none;
+
+    @include respond(phone) {
+      -webkit-text-fill-color: $secondary-color;
+    }
+
+    &::after {
+      width: 100%;
+    }
+  }
 }

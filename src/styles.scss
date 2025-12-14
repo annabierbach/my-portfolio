@@ -16,3 +16,92 @@
 @import "./sass/sections/contact";
 @import "./sass/sections/hero";
 @import "./sass/sections/projects";
+
+#impressum *,
+.privacy-section {
+    text-align: left !important;
+}
+.legal-wrapper {
+    text-align: left !important;
+}
+/* Zwei Positionen: oben + unten */
+.back-button-container.top {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+/* Box für Back-Button */
+.back-button-box {
+    max-width: 350px;        /* Breite der Box */
+    margin: 40px auto;       /* zentriert + Abstand */
+    padding: 20px;
+    background: #fafafa;     /* gleiche Farbe wie Kontaktformular */
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    text-align: center;      /* Button im Zentrum */
+}
+
+/* Button selbst */
+.back-button {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+}
+
+/* Falls du unterschiedliche Abstände für oben/unten willst */
+.back-button-box.top {
+    margin-top: 20px;
+}
+
+.back-button-box.bottom {
+    margin-bottom: 40px;
+}
+
+.button-row {
+  display: flex;
+  gap: 20px; /* Abstand zwischen den Buttons */
+  justify-content: flex-start; /* Buttons linksbündig, wie original */
+  align-items: center;
+}
+
+.button-row .cta-btn--hero {
+  margin: 0; /* verhindert unnötige Abstände, ändert aber nicht das Design */
+}
+:root {
+  --primary-color: #0077cc;
+  --secondary-color: #66b2ff;}
+
+  #projects {
+  padding-top: 180px !important; /* mehr Abstand nach oben */
+}
+#projects .project-wrapper {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+#projects h2.section-title.dark-blue-text {
+  margin-top: 0 !important;
+  margin-bottom: 1.5rem !important;
+}
+section#projects {
+  padding-top: 10rem !important;
+  margin-top: 0 !important;
+}
+
+.selector {
+  hyphens: auto;
+}
+
+
+

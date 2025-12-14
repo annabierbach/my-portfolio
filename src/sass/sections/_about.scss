@@ -58,12 +58,18 @@
         }
 
         &--important {
-          background: darken($secondary-color, 1%);
+       background: linear-gradient(
+        135deg,
+        darken($primary-color, 10%) 0%,
+        lighten($secondary-color, 15%) 100%
+        );
           display: inline-block;
           font-style: italic;
           padding: 0 0.3rem;
           margin: 0.3rem 0;
           line-height: 1.6;
+          color: white; // optional, falls Text sonst schlecht lesbar ist
+          }
 
           @include respond(phone) {
             display: inline;
@@ -76,4 +82,3 @@
       }
     }
   }
-}
