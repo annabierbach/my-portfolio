@@ -1,0 +1,647 @@
+
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17885886041"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17885886041');
+    </script>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
+
+    <title>Suchmaschinenmarketing &amp; Google Ads verstehen | Anna Bierbach</title>
+    <meta
+      name="description"
+      content="Grundlagen verständlich erklärt: Was ist Suchmaschinenmarketing (SEM), wo passt Google Ads hinein und wie funktioniert das System? Der Einstieg für kleine Unternehmen."
+    />
+
+    <!-- Beibehaltung der bestehenden Stylesheet-Referenz: wird übernommen, falls vorhanden -->
+    <link rel="stylesheet" href="styles.scss" />
+
+    <!-- Font Awesome (wie auf der Hauptseite) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- Montserrat als verlässliche Basis-Schrift -->
+    <link rel="preconnect" href="#" />
+    <link rel="preconnect" href="#" crossorigin />
+    <link
+      href="#"
+      rel="stylesheet"
+    />
+    <script defer src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+
+    <style>
+      :root {
+        /* Markenfarben der Website (aus styles.scss) */
+        --navy: #0077cc; /* Website-Primärblau (--primary-color) */
+        --navy-soft: #00497d; /* dunklere Variante für Verläufe & Hover */
+        --ink: #1c1c1c;
+        --muted: #5a5f6b;
+        --line: #dddddd;
+        --card-line: #d9d9d9;
+        --bg-soft: #f7f7f7;
+        --shadow-sm: 0 0 10px rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.1);
+        --good: #2e7d32;
+        --bad: #c0392b;
+      }
+
+      /* Eigenständige Basis (greift nur, wenn styles.scss nicht lädt) */
+      .ga-page {
+        font-family: "Montserrat", sans-serif;
+        color: var(--ink);
+        line-height: 1.7;
+        background: #ffffff;
+        margin: 0;
+      }
+      .ga-page * {
+        box-sizing: border-box;
+      }
+      .ga-container {
+        width: 66.67%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 24px;
+        text-align: left;
+      }
+      .ga-page .ga-article section { text-align: left; }
+      .ga-page .ga-article section.ga-cta { text-align: center; }
+
+@media (max-width: 1024px) { .ga-container { width: 86%; } }
+@media (max-width: 700px)  { .ga-container { width: 100%; padding: 0 20px; } }
+
+      /* ---------- Hero ---------- */
+      .ga-hero {
+        background:
+          radial-gradient(1200px 400px at 80% -10%, rgba(255, 255, 255, 0.08), transparent 60%),
+          linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
+        color: #fff;
+        padding: 96px 0 80px;
+      }
+      .ga-eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 13px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.7);
+        margin: 0 0 18px;
+      }
+      .ga-hero h1 {
+        font-size: clamp(30px, 5vw, 46px);
+        line-height: 1.15;
+        font-weight: 800;
+        margin: 0 0 18px;
+      }
+      .ga-hero h1 .accent {
+        color: #66b2ff; /* Website-Sekundärblau (--secondary-color) */
+      }
+      .ga-hero p.lede {
+        font-size: 18px;
+        max-width: 640px;
+        color: rgba(255, 255, 255, 0.85);
+        margin: 0 0 28px;
+      }
+      .ga-meta {
+        font-size: 13.5px;
+        color: rgba(255, 255, 255, 0.65);
+        margin: 0 0 30px;
+      }
+      .ga-meta i {
+        margin-right: 6px;
+      }
+      .button-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+      /* Buttons wie auf der Website: eckig, gefüllt sich beim Hover blau */
+      .ga-btn {
+        display: inline-block;
+        font-family: "Montserrat", sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        padding: 13px 28px;
+        border-radius: 0; /* eckig */
+        text-decoration: none;
+        cursor: pointer;
+        background: transparent;
+        color: #fff;
+        border: 2px solid #fff;
+        transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+      }
+      .ga-btn:hover,
+      .ga-btn:focus-visible {
+        background-color: var(--navy-soft); /* füllt sich blau */
+        border-color: var(--navy-soft);
+        color: #fff;
+      }
+      /* alle Varianten identisch (wie cta-btn--hero) */
+      .ga-btn--light,
+      .ga-btn--solid,
+      .ga-btn--primary {
+        background: transparent;
+        color: #fff;
+        border-color: #fff;
+      }
+      .ga-btn--light:hover,
+      .ga-btn--solid:hover,
+      .ga-btn--primary:hover {
+        background-color: var(--navy-soft);
+        border-color: var(--navy-soft);
+        color: #fff;
+      }
+
+      /* ---------- Article ---------- */
+      .ga-article {
+        padding: 64px 0 40px;
+      }
+      .ga-article h2 {
+        font-size: 26px;
+        font-weight: 700;
+        color: var(--navy);
+        margin: 52px 0 18px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--line);
+        scroll-margin-top: 24px;
+      }
+      .ga-article h2:first-of-type {
+        margin-top: 8px;
+      }
+      .ga-article h3 {
+        font-size: 19px;
+        font-weight: 700;
+        color: var(--ink);
+        margin: 28px 0 8px;
+      }
+      .ga-article p {
+        font-size: 17px;
+        margin: 0 0 16px;
+      }
+      .ga-article ul {
+        margin: 0 0 18px;
+        padding-left: 22px;
+      }
+      .ga-article li {
+        font-size: 17px;
+        margin-bottom: 8px;
+      }
+      .ga-article a {
+        color: var(--navy);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+      .ga-article a.cta-btn {
+        color: #fff;
+        text-decoration: none;
+      }
+      .ga-article a.cta-btn:hover {
+         color: #66b2ff;
+      }
+      .ga-article code {
+        background: var(--bg-soft);
+        border: 1px solid var(--card-line);
+        border-radius: 5px;
+        padding: 1px 7px;
+        font-family: "SFMono-Regular", Consolas, monospace;
+        font-size: 14.5px;
+        color: var(--navy);
+      }
+
+      /* Intro-Lead-Absatz */
+      .ga-intro {
+        font-size: 19px;
+        color: #3a3f4a;
+        border-left: 4px solid var(--navy);
+        padding: 4px 0 4px 20px;
+        margin-bottom: 8px;
+      }
+
+      /* Inhaltsverzeichnis */
+      .ga-toc {
+        background: #fff;
+        border: 1px solid var(--card-line);
+        border-radius: 12px;
+        box-shadow: var(--shadow-sm);
+        padding: 24px 28px;
+        margin: 36px 0 8px;
+      }
+      .ga-toc h2 {
+        font-size: 18px;
+        margin: 0 0 14px;
+        padding: 0;
+        border: none;
+        color: var(--navy);
+      }
+      .ga-toc ol {
+        margin: 0;
+        padding-left: 20px;
+        columns: 2;
+        column-gap: 36px;
+      }
+      .ga-toc li {
+        margin-bottom: 8px;
+        font-size: 15.5px;
+        break-inside: avoid;
+      }
+      .ga-toc a {
+        color: var(--ink);
+        text-decoration: none;
+      }
+      .ga-toc a:hover {
+        color: var(--navy);
+        text-decoration: underline;
+      }
+
+      /* Karten / Callouts im Stil der Portfolio-Boxen */
+      .ga-card {
+        background: #fff;
+        border: 1px solid var(--card-line);
+        border-radius: 12px;
+        box-shadow: var(--shadow-sm);
+        padding: 22px 26px;
+        margin: 22px 0;
+      }
+      .ga-card h3 {
+        margin-top: 0;
+      }
+      .ga-callout {
+        background: var(--bg-soft);
+        border-left: 4px solid var(--navy);
+        border-radius: 8px;
+        padding: 18px 22px;
+        margin: 22px 0;
+        font-size: 17px;
+      }
+      .ga-callout strong {
+        color: var(--navy);
+      }
+      .ga-checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .ga-checklist li {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 10px;
+      }
+      .ga-checklist li::before {
+        content: "\2713";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: var(--navy);
+        font-weight: 700;
+      }
+
+      /* Gut/Schlecht-Beispiele */
+      .ga-examples {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin: 22px 0;
+      }
+      .ga-ex {
+        border: 1px solid var(--card-line);
+        border-radius: 12px;
+        padding: 18px 20px;
+        background: #fff;
+        box-shadow: var(--shadow-sm);
+      }
+      .ga-ex--bad {
+        border-left: 4px solid var(--bad);
+      }
+      .ga-ex--good {
+        border-left: 4px solid var(--good);
+      }
+      .ga-ex .tag {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+      .ga-ex--bad .tag {
+        color: var(--bad);
+      }
+      .ga-ex--good .tag {
+        color: var(--good);
+      }
+      .ga-ex p {
+        margin: 0;
+        font-size: 16px;
+        font-style: italic;
+      }
+
+      /* FAQ */
+      .ga-faq details {
+        border: 1px solid var(--card-line);
+        border-radius: 12px;
+        box-shadow: var(--shadow-sm);
+        padding: 0 24px;
+        margin-bottom: 14px;
+        background: #fff;
+        transition: box-shadow 0.2s ease;
+      }
+      .ga-faq details[open] {
+        box-shadow: var(--shadow-md);
+      }
+      .ga-faq summary {
+        cursor: pointer;
+        list-style: none;
+        font-weight: 700;
+        font-size: 17px;
+        color: var(--navy);
+        padding: 18px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .ga-faq summary::-webkit-details-marker {
+        display: none;
+      }
+      .ga-faq summary::after {
+        content: "+";
+        font-size: 24px;
+        font-weight: 400;
+        color: var(--navy);
+        transition: transform 0.2s ease;
+      }
+      .ga-faq details[open] summary::after {
+        content: "\2212";
+      }
+      .ga-faq .faq-body {
+        padding: 0 0 18px;
+      }
+      .ga-faq .faq-body p {
+        margin: 0;
+        font-size: 16.5px;
+      }
+
+      .ga-divider {
+        border: none;
+        height: 2px;
+        width: 80%;
+        margin: 56px auto;
+        background: var(--line);
+      }
+
+      /* Abschluss-CTA */
+      .ga-cta {
+        background:
+          radial-gradient(900px 300px at 20% 120%, rgba(255, 255, 255, 0.08), transparent 60%),
+          linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
+        color: #fff;
+        border-radius: 16px;
+        padding: 48px 40px;
+        text-align: center;
+        margin: 20px 0 80px;
+      }
+      .ga-cta h2 {
+        color: #fff;
+        border: none;
+        margin: 0 0 12px;
+        font-size: 28px;
+      }
+      .ga-cta p {
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 560px;
+        margin: 0 auto 26px;
+        font-size: 17px;
+      }
+
+      /* Footer im Stil der Hauptseite */
+      .ga-footer {
+        background: var(--navy);
+        color: #fff;
+        text-align: center;
+        padding: 40px 0 28px;
+      }
+      .ga-footer .back-to-top {
+        display: inline-block;
+        color: #fff;
+        margin-bottom: 18px;
+      }
+      .ga-footer .social-links a {
+        color: #fff;
+        margin: 0 10px;
+        font-size: 22px;
+      }
+      .ga-footer hr {
+        width: 60%;
+        border: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        margin: 22px auto;
+      }
+      .ga-footer__text {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .ga-footer__text a,
+      .ga-footer a.impressum {
+        color: #fff;
+      }
+      .ga-footer a.impressum {
+        display: inline-block;
+        margin-top: 10px;
+        font-size: 13px;
+      }
+
+      @media (max-width: 700px) {
+        .ga-examples {
+          grid-template-columns: 1fr;
+        }
+        .ga-toc ol {
+          columns: 1;
+        }
+        .ga-hero {
+          padding: 72px 0 56px;
+        }
+        .ga-cta {
+          padding: 40px 22px;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="ga-page">
+    <div id="top"></div>
+
+    <!-- ===== Hero ===== -->
+    <header class="ga-hero reveal">
+      <div class="ga-container">
+        <p class="ga-eyebrow">Teil 1 · Grundlagen</p>
+        <h1>Suchmaschinenmarketing &amp; <span class="accent">Google Ads</span> verstehen</h1>
+        <p class="lede">
+          Bevor es an die Umsetzung geht: Hier erfährst du, was Suchmaschinenmarketing ist, wo
+          Google Ads hineinpasst und wie das System grundsätzlich funktioniert.
+        </p>
+        <p class="ga-meta">
+          <span><i class="fa fa-calendar"></i>Aktualisiert: Juni 2026</span>
+          &nbsp;&nbsp;·&nbsp;&nbsp;
+          <span><i class="fa fa-clock-o"></i>Lesezeit ca. 5 Min.</span>
+        </p>
+        <div class="button-row">
+          <!-- TODO: Dateinamen deiner deutschen Startseite anpassen -->
+          <a class="cta-btn cta-btn--resume" href="index.html">&larr; Zur Startseite</a>
+          <a class="cta-btn cta-btn--resume" href="erste-schritte.html">Zu den ersten Schritten &rarr;</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== Artikel ===== -->
+    <main class="ga-article">
+      <div class="ga-container">
+        <p class="ga-intro reveal">
+          Dieser erste Teil schafft die Grundlage. Im zweiten Teil geht es dann Schritt für Schritt
+          an die Umsetzung deiner ersten Kampagne.
+        </p>
+
+        <section class="reveal">
+          <h2 id="sem">1. Was ist Suchmaschinenmarketing?</h2>
+          <p>
+            Suchmaschinenmarketing (kurz SEM, für „Search Engine Marketing“) ist der Oberbegriff für
+            alle Maßnahmen, mit denen du in Suchmaschinen wie Google sichtbar wirst – genau dort, wo
+            Menschen aktiv nach Produkten, Dienstleistungen oder Antworten suchen. Es teilt sich in
+            zwei große Bereiche auf:
+          </p>
+          <ul>
+            <li>
+              <strong>SEA (Search Engine Advertising) – bezahlte Anzeigen.</strong> Du schaltest
+              Werbeanzeigen, die über oder neben den Suchergebnissen erscheinen, und zahlst in der
+              Regel pro Klick. Das wichtigste Werkzeug dafür ist <strong>Google Ads</strong>.
+            </li>
+            <li>
+              <strong>SEO (Search Engine Optimization) – organische Sichtbarkeit.</strong> Du
+              optimierst deine Website so, dass sie in den unbezahlten Suchergebnissen weiter oben
+              erscheint. Das kostet nicht pro Klick, dafür aber Zeit und kontinuierliche Arbeit.
+            </li>
+          </ul>
+          <h3>SEA und SEO im Vergleich</h3>
+          <p>
+            Beide Wege führen zu mehr Sichtbarkeit, wirken aber unterschiedlich. Bezahlte Anzeigen bringen
+            dir sofort Sichtbarkeit und sind steuerbar – die Anzeigen erscheinen, sobald du eine Kampagne
+            startest, und kannst sie jederzeit anpassen oder pausieren. Stoppst du das Budget,
+            verschwindet allerdings auch die Sichtbarkeit. Organische Platzierungen brauchen mehrere
+            Wochen bis Monate, dafür sind sie langfristiger und haben keine Kosten pro Klick.
+          </p>
+          <div class="ga-callout">
+            <strong>Kurz gesagt:</strong> SEO ist ein Marathon, SEA ein Sprint. Für viele kleine
+            Unternehmen ist bezahlte Werbung der schnellste Weg zu ersten Anfragen – und genau darum
+            geht es in diesem Leitfaden: <strong>Google Ads</strong>, das zentrale Werkzeug im
+            SEA-Bereich.
+          </div>
+        </section>
+
+        <section class="reveal">
+          <h2 id="warum">2. Warum Google Ads für kleine Unternehmen?</h2>
+          <p>
+            Der große Vorteil von Google Ads: Deine Anzeige erscheint genau in dem Moment, in dem
+            jemand aktiv nach deinem Angebot sucht. Wer „Heizung reparieren Köln“ eingibt, hat ein
+            konkretes Problem – und du kannst direkt sichtbar sein.
+          </p>
+          <p>Weitere Pluspunkte gerade für kleine Budgets:</p>
+          <ul>
+            <li>
+              <strong>Volle Kostenkontrolle.</strong> Du legst ein Tagesbudget fest und zahlst nur,
+              wenn jemand klickt (Pay-per-Click).
+            </li>
+            <li><strong>Kein Mindestbudget.</strong> Du kannst klein anfangen und langsam steigern.</li>
+            <li>
+              <strong>Messbar.</strong> Anders als bei klassischer Werbung siehst du genau, was ein
+              Kunde gekostet hat.
+            </li>
+          </ul>
+          <p>
+            Eine ehrliche Einordnung gehört aber dazu: Google Ads ist kein Selbstläufer. Die
+            Plattform ist eigentlich auf große Werbetreibende ausgelegt, und viele
+            Standardeinstellungen sind nicht im Interesse kleiner Unternehmen. Mit etwas Sorgfalt
+            lässt sich das aber gut steuern – genau darum geht es hier.
+          </p>
+        </section>
+
+        <section class="reveal">
+          <h2 id="grundlagen">3. Wie Google Ads funktioniert (die Grundlagen)</h2>
+          <p>Bevor du startest, hilft ein grobes Verständnis der Mechanik.</p>
+          <h3>Das Auktionsprinzip</h3>
+          <p>
+            Für jede Suchanfrage findet in Sekundenbruchteilen eine Auktion statt. Wer wo erscheint,
+            hängt nicht nur vom Gebot ab, sondern auch vom <strong>Qualitätsfaktor</strong> – also
+            davon, wie relevant deine Anzeige und deine Zielseite sind. Das ist eine gute Nachricht
+            für kleine Unternehmen: Mit relevanten, gut gemachten Anzeigen kannst du dich auch gegen
+            höhere Gebote durchsetzen.
+          </p>
+          <h3>Die wichtigsten Begriffe im Überblick</h3>
+          <ul>
+            <li><strong>CPC (Cost-per-Click):</strong> Was dich ein Klick kostet.</li>
+            <li><strong>CTR (Click-Through-Rate):</strong> Anteil der Nutzer, die deine Anzeige sehen und klicken.</li>
+            <li><strong>Conversion:</strong> Eine gewünschte Aktion – Anruf, Anfrageformular, Kauf.</li>
+            <li><strong>ROAS (Return on Ad Spend):</strong> Das Verhältnis zwischen den Umsätzen und den Werbeausgaben.</li>
+            <li><strong>Smart Bidding:</strong> Die automatische Gebotssteuerung von Google, die Gebote pro Auktion mit KI anpasst.</li>
+          </ul>
+          <h3>Die Kampagnentypen</h3>
+          <p>
+            Stand 2026 gibt es viele Kampagnentypen (zum Beispiel Suche, Display, Shopping, Video, App, Demand
+            Gen, Performance Max). Für die allermeisten kleinen
+            Unternehmen ist davon nur eine Handvoll relevant. Insbesondere die Suchkampagnen – mehr dazu im zweiten Teil „Erste Schritte“.
+          </p>
+        </section>
+
+        <!-- Übergang zu Teil 2 -->
+        <section class="ga-cta reveal" id="cta">
+          <h2>Bereit für die Umsetzung?</h2>
+          <p>
+            Du kennst jetzt die Grundlagen. Im zweiten Teil baust du in acht klaren Schritten eine
+            funktionierende Google-Ads-Strategie auf – von der Vorbereitung bis zur Optimierung.
+          </p>
+          <a class="ga-btn ga-btn--solid" href="erste-schritte.html">In 8 Schritten zur Strategie &rarr;</a>
+        </section>
+      </div>
+    </main>
+
+    <!-- ===== Footer (wie auf der Hauptseite) ===== -->
+    <footer class="ga-footer">
+      <div class="ga-container">
+        <a href="#top" class="back-to-top" aria-label="Nach oben">
+          <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
+        </a>
+        <div class="social-links">
+          <a rel="noreferrer" href="#!" target="_blank"><i class="fa fa-twitter"></i></a>
+          <a rel="noreferrer" href="#!" target="_blank"><i class="fa fa-linkedin"></i></a>
+          <a rel="noreferrer" href="#!" target="_blank"><i class="fa fa-github"></i></a>
+        </div>
+        <hr />
+        <p class="ga-footer__text">
+          © 2021 - Template developed byhref="
+          <a rel="noreferrer" https://github.com/cobiwave" target="_blank">Jacobo Martínez</a>
+        </p>
+        <a class="impressum" href="impressum.html">Impressum</a>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (window.ScrollReveal) {
+          ScrollReveal().reveal(".reveal", {
+            distance: "24px",
+            origin: "bottom",
+            duration: 700,
+            interval: 70,
+            opacity: 0,
+            reset: false,
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
